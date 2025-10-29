@@ -162,7 +162,8 @@ def search_cars(query: str, top_k: int = 5):
         query_vector=query_vector,
         limit=top_k,
         with_payload=True,
-        query_filter=qdrant_filter
+        query_filter=qdrant_filter,
+        score_threshold=0.3
     )
 
     # Format results nicely

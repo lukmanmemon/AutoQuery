@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 import numpy as np
 
-DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "car_dataset_dekho_with_images.csv"
+DATA_PATH = Path(__file__).resolve().parent.parent / "data" / "cleaned_car_dataset_with_images.csv"
 df = pd.read_csv(DATA_PATH)
 clean_df = df.copy()
 clean_df = clean_df.replace([np.nan, np.inf, -np.inf], None)

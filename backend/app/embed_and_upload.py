@@ -12,7 +12,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 COLLECTION_NAME = "cars_collection"
-DATA_PATH = "data/car_dataset_with_images.csv"
+DATA_PATH = "data/cleaned_car_dataset_with_images.csv"
 INR_TO_CAD = 0.016  # adjust based on current rate
 
 df = pd.read_csv(DATA_PATH)
