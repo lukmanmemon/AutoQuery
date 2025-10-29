@@ -2,14 +2,15 @@ import { useState } from "react";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
+  handleSearchInput: (input: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onSearch, handleSearchInput }) => {
   const [input, setInput] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(input);
+    handleSearchInput(input);
     onSearch(input);
   };
 
@@ -20,7 +21,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
     >
       <input
         type="text"
-        placeholder="Search cars..."
+        placeholder="Search for cars..."
         className="flex-1 p-3 rounded-l-xl outline-none text-white bg-gray-600"
         value={input}
         onChange={(e) => setInput(e.target.value)}

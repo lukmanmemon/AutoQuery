@@ -8,19 +8,24 @@ interface Car {
   transmission?: string;
   fuel?: string;
   image_url?: string;
+  seller_type?: string;
+  owner?: string;
 }
 
 interface ResultsListProps {
   results: Car[],
+  resultsError: string | null;
   loading: boolean,
+  hasSearched: boolean,
   totalPages: number,
   page: number,
   handlePrev: () => void;
   handleNext: () => void;
+  searchInput: string;
 }
 
-const ResultsList: React.FC<ResultsListProps> = ({ results, loading, totalPages, page, handlePrev, handleNext }) => {
-  const pageSize = 20;
+const ResultsList: React.FC<ResultsListProps> = ({ results, resultsError, loading, hasSearched, totalPages, page, handlePrev, handleNext, searchInput }) => {
+  const pageSize = 18;
 
   return (
     <div>
@@ -47,9 +52,43 @@ const ResultsList: React.FC<ResultsListProps> = ({ results, loading, totalPages,
               transmission={car.transmission}
               fuel={car.fuel}
               image_url={car.image_url}
+              seller_type={car.seller_type}
+              owner={car.owner}
             />
         ))}
       </div>
+
+      {resultsError && !loading && 
+        <div className="flex flex-col items-center justify-center">
+          <div className="mb-6 p-4 bg-red-50 rounded-full">
+            <svg className="w-12 h-12 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-100 mb-3">
+            Failed to load cars...
+          </h3>
+        </div>
+      }
+      {hasSearched && results.length === 0 && !loading && (
+        <div className="flex flex-col items-center justify-center">
+          <div className="mb-6 p-4 bg-blue-50 rounded-full">
+            <svg className="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 className="text-2xl font-bold text-gray-100 mb-3">
+            No results found
+          </h3>
+          
+          {searchInput &&
+            <p className="text-gray-400 max-w-md mx-auto">
+              We couldn't find any cars matching your search for 
+              <span className="font-semibold text-blue-500"> "{searchInput}"</span>
+            </p>
+          }
+        </div>
+      )}
       {/* Pagination */}
       {!loading && totalPages > 1 && <div className="flex justify-end items-center gap-4 mt-4">
         <button

@@ -14,14 +14,22 @@ interface Car {
 
 function App() {
   const [results, setResults] = useState<Car[]>([]);
+  const [resultsError, setResultsError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [hasSearched, setHasSearched] = useState(false);
   const [totalPages, setTotalPages] = useState(1);
   const [page, setPage] = useState(1);
-  const pageSize = 20;
+  const pageSize = 18;
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearchInput = (input: string) => {
+    setSearchInput(input);
+  }
 
   const getCars = async (query: string) => {
   setLoading(true);
-  
+  setHasSearched(true);
+
   await fetch(`/api/search?query=${query}&limit=${50}`)
     .then((res) => res.json())
     .then((data) => {
@@ -30,7 +38,9 @@ function App() {
       setTotalPages(Math.ceil(cars.length / pageSize));
       
     })
-    .catch((err) => console.error("Error fetching cars:", err))
+    .catch((err) => {
+      setResultsError("Error fetching cars:" + err);
+    })
     .finally(() => setLoading(false));
   }
 
@@ -54,14 +64,17 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-800 flex flex-col items-center px-6 py-10">
       <h1 className="text-4xl font-bold text-blue-500 mb-6">AutoQuery</h1>
-      <SearchBar onSearch={handleSearch} />
+      <SearchBar onSearch={handleSearch} handleSearchInput={handleSearchInput} />
       <ResultsList 
-        results={results} 
-        loading={loading} 
+        results={results}
+        resultsError={resultsError}
+        loading={loading}
+        hasSearched={hasSearched} 
         totalPages={totalPages} 
         page={page}
         handlePrev={handlePrev} 
-        handleNext={handleNext} 
+        handleNext={handleNext}
+        searchInput={searchInput}
       />
     </div>
   );
