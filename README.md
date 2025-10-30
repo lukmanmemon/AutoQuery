@@ -1,9 +1,10 @@
-# AutoQuery
-🚗 🔍  A semantic search app for cars
+# 🚗 AutoQuery: Semantic Car Search
 
-The app can be viewed at: {placeholder_url}
+Find your perfect vehicle using intelligent search. AutoQuery understands your natural language queries and matches them against 8,000+ cars from India's CarDekho marketplace.
 
-## Tech Stack
+**Live Demo:** {placeholder_url}
+
+## 🛠️ Tech Stack
 | Component      | Technology     |
 |----------------|----------------|
 | **Backend**    | FastAPI (Python)    |
@@ -12,11 +13,16 @@ The app can be viewed at: {placeholder_url}
 | **Styling**    | Tailwind CSS   |
 | **Deployment** |    |
 
-## Dataset
-The data used for this project is a vehicle [dataset](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho) from Kaggle. It is a dataset consisting of 8,000+ vehicles from India's car marketplace CarDekho. Prices were converted to Canadian dollars based on the conversion rate.
+## 📊 Dataset
 
-It does not include images for each vehicle. Thus, a Python script was used to fetch an image for each car using [DDGS](https://pypi.org/project/ddgs/) (Python search library) and included in the CSV file.
+**Source:** [CarDekho Vehicle Dataset](https://www.kaggle.com/datasets/nehalbirla/vehicle-dataset-from-cardekho) from Kaggle  
+**Size:** 8,000+ vehicles from India's car marketplace  
+**Processing:** Prices converted to CAD; Images added using [DDGS](https://pypi.org/project/ddgs/)
 
-Limitations:
-- Duplicate data within dataset
-- Data does not consist of car type e.g. sedan, SUV, coupe etc
+The dataset was enhanced with a Python script to fetch vehicle images, ensuring each car has a corresponding image in the CSV file.
+
+
+## 🎬 Project Demo
+
+https://github.com/user-attachments/assets/33a49ebf-7cd8-4a7c-a282-dde95c05286d
+
