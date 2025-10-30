@@ -25,7 +25,7 @@ const CarCard: React.FC<CarCardProps> = ({name, year, price, km_driven, transmis
   const numberFormatter = new Intl.NumberFormat('en-US');
 
   return (
-    <div className="bg-indigo-100 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full sm:w-64 md:w-72 mb-4 overflow-hidden">
+    <div className="bg-indigo-100 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 w-full sm:w-64 md:w-72 mb-4 overflow-hidden flex flex-col">
       <div className="relative">
         <img
           src={image_url}
@@ -43,7 +43,7 @@ const CarCard: React.FC<CarCardProps> = ({name, year, price, km_driven, transmis
         </div>
       </div>
 
-      <div className="p-4">
+      <div className="p-4 flex-1 flex flex-col">
         <h3 className="text-lg font-bold text-gray-800 mb-3 line-clamp-2 leading-tight">
           {name}
         </h3>
@@ -81,16 +81,18 @@ const CarCard: React.FC<CarCardProps> = ({name, year, price, km_driven, transmis
           )}
         </div>
 
-        {price && (
-          <div className="border-t pt-3">
-            <p className="text-xl font-bold text-blue-600">
-              {formatToCAD(parseFloat(price))}
-            </p>
-          </div>
-        )}
+          {price && (
+            <div className="border-t pt-3 mt-auto">
+              <p className="text-xl font-bold text-blue-600">
+                {formatToCAD(parseFloat(price))}
+              </p>
+            </div>
+          )}
       </div>
     </div>
   );
+
+
 };
 
 export default CarCard;
