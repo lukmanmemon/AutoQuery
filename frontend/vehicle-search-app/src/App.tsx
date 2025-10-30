@@ -21,6 +21,7 @@ function App() {
   const [page, setPage] = useState(1);
   const pageSize = 18;
   const [searchInput, setSearchInput] = useState("");
+  const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
   const handleSearchInput = (input: string) => {
     setSearchInput(input);
@@ -30,7 +31,7 @@ function App() {
   setLoading(true);
   setHasSearched(true);
 
-  await fetch(`/api/search?query=${query}&limit=${50}`)
+  await fetch(`${apiUrl}/api/search?query=${query}&limit=${50}`)
     .then((res) => res.json())
     .then((data) => {
       const cars = data.results.map((item: any) => item.car);
