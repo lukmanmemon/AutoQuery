@@ -70,7 +70,7 @@ const ResultsList: React.FC<ResultsListProps> = ({ results, resultsError, loadin
           </h3>
         </div>
       }
-      {hasSearched && results.length === 0 && !loading && (
+      {hasSearched && results.length === 0 && !loading && !resultsError && (
         <div className="flex flex-col items-center justify-center">
           <div className="mb-6 p-4 bg-blue-50 rounded-full">
             <svg className="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
