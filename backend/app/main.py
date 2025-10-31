@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-from app.api.cars import router as car_router
-from app.api.search import router as search_router
+from api.cars import router as car_router
+from api.search import router as search_router
 from fastapi.middleware.cors import CORSMiddleware
 import os
 
