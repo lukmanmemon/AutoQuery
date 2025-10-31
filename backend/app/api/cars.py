@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query
-from app.services.car_service import get_all_cars
+from ..services.car_service import get_all_cars
 
 router = APIRouter()
 

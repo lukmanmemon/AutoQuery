@@ -1,5 +1,5 @@
-from app.utils.qdrant_client import client
-from app.services.embeddings import get_embedding
+from ..utils.qdrant_client import client
+from embeddings import get_embedding
 from qdrant_client.http import models
 import re
 
