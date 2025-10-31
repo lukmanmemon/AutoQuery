@@ -33,7 +33,3 @@ app.include_router(search_router, prefix="/api/search")
 @app.get("/")
 def root():
     return {"message": "Welcome to the Car Search API!"}
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Render provides PORT dynamically
-    uvicorn.run("app.main:app", host="0.0.0.0", port=port)
