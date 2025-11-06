@@ -2,7 +2,7 @@
 
 Find your perfect vehicle using intelligent search. AutoQuery understands your natural language queries and matches them against 8,000+ cars from India's CarDekho marketplace.
 
-**Live Demo:** {placeholder_url}
+**Live Demo:** https://autoquery-cfeh.onrender.com/
 
 ## 🛠️ Tech Stack
 | Component      | Technology     |
@@ -11,7 +11,7 @@ Find your perfect vehicle using intelligent search. AutoQuery understands your n
 | **Database**   | Qdrant         |
 | **Frontend**   | React.js + TypeScript |
 | **Styling**    | Tailwind CSS   |
-| **Deployment** |    |
+| **Deployment** | Render / Railway   |
 
 ## 📊 Dataset
 
