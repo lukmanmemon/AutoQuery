@@ -1,5 +1,5 @@
 import pandas as pd
-from app.utils.qdrant_client import client
+from app.utils.qdrant_utils import client
 from app.services.embeddings import get_embedding
 from qdrant_client.http import models
 import logging

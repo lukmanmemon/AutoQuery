@@ -1,5 +1,5 @@
 from qdrant_client.http import models
-from app.utils.qdrant_client import client
+from app.utils.qdrant_utils import client
 
 COLLECTION_NAME = "cars_collection"
 field_names = ["year", "km_driven", "price", "price_cad"]
